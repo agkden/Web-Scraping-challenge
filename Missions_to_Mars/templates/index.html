@@ -36,12 +36,15 @@
           <!-- Insert Featured Image -->
           <div class="col-md-8">
             <h3>Featured Mars Image</h3>
-            <img src="" alt="Featured Mars Image">
+            <img class="img-fluid" src="{{mars_data.featured_image}}" alt="Featured Mars Image">            
           </div>
+
           <!-- Insert Mars Facts Table -->
           <div class="col-md-4">
             <h5>Mars Facts</h5>
-            <table>table</table>
+            <div class="table-responsive">         
+                {{mars_data.mars_facts | safe}}              
+            </div>       
           </div>
         </div>  <!-- /.row -->
       </div>  <!-- /.container -->
