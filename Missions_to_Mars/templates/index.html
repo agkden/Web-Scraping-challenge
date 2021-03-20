@@ -26,8 +26,8 @@
       <!-- Insert Latest Mars News -->
       <div class="col-md-12">
         <h3>Latest Mars News</h3>
-        <h5>{{mars_data.news_title}}</h5>
-        <p>{{mars_data.news_paragraph}}</p>
+        <h5>{{ mars_data.news_title }}</h5>
+        <p>{{ mars_data.news_paragraph }}</p>
         <br>
       </div>
       
@@ -55,38 +55,19 @@
         <h3>Mars Hemispheres</h3>
         <hr> 
 
-        <div class="row">
-          <!-- insert Cerberus Hemisphere picture -->
-          <div class="col-md-6 mb-4">                          
-            <img src="{{ mars_data.hemispheres[0]['img_url'] }}"  class="card-img-top" alt="cerberus_enhanced">
+        <!-- insert hemispheres images using Jinja for-loop template  -->
+        <div class="row">          
+          {% for item in mars_data.hemispheres %}
+          <div class="col-md-6">
+            <img src="{{ item.img_url }}" class="card-img-top" alt="hemisphere_enhanced_image">
             <div class="card-body text-center">
-              <h5 class="card-title">{{ mars_data.hemispheres[0]['title'] }}</h5>
+              <h5 class="card-title">{{ item.title }}</h5>
             </div>
           </div>
-          <!-- insert Schiaparelli Hemisphere picture -->         
-          <div class="col-md-6 mb-4">              
-            <img src="{{ mars_data.hemispheres[1]['img_url'] }}" class="card-img-top" alt="schiaparelli_enhanced">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{ mars_data.hemispheres[1]['title'] }}</h5>
-            </div>
-          </div>        
-          <!-- insert Syrtis Major Hemisphere picture -->
-          <div class="col-md-6 mb-4">                 
-            <img src="{{mars_data.hemispheres[2]['img_url']}}" class="card-img-top" alt="syrtis_major_enhanced">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{ mars_data.hemispheres[2]['title'] }}</h5>
-            </div>
-          </div>
-          <!-- insert Valles Marineris Hemisphere picture -->          
-          <div class="col-md-6 mb-4">              
-            <img src="{{ mars_data.hemispheres[3]['img_url'] }}" class="card-img-top" alt="valles_marineris_enhanced">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{ mars_data.hemispheres[3]['title'] }}</h5>
-            </div>
-          </div>
+          {% endfor %}          
         </div>   <!-- /.row -->
-      </div>
-    </div>
+      </div>    <!-- /.container -->
+    </div>    <!-- /. container-fluid-->
     
 
     <!-- Optional JavaScript -->
