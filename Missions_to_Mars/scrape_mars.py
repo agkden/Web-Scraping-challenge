@@ -51,6 +51,7 @@ def scrape():
 
     # find the first image and click on it to go to the next page
     browser.find_by_css('.BaseImage').click()
+    time.sleep(2)
 
     # grab the html at the new page
     html = browser.html
@@ -87,11 +88,40 @@ def scrape():
     # ******************************
 
     # Visit the USGS Astrogeology site
-    #url=
+    astro_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
 
+    # use splinter to navigate the site
+    browser.visit(astro_url)
+    time.sleep(2)
 
+    # obtain url for high resolution image and title for each of 4 Mars's hemispheres
+    all_items = browser.find_by_css('.item') 
 
+    hemisphere_image_urls=[]
 
+    for item in range(len(all_items)):
+        #img_dict={}
+
+        # find the image thumbnail and click on it to go to the next page
+        browser.find_by_css('.thumb')[item].click()
+
+        # grab the html at the new page
+        html = browser.html
+
+        # parse HTML with BeautifulSoup
+        soup = bs(html,'html.parser')
+
+        # find image title
+        title = soup.find('h2', class_='title').text
+
+        # find image url
+        img_url = soup.find('div', class_='downloads').find('a')['href']
+        
+        # append the dictionary to a list
+        hemisphere_image_urls.append({'title': title, 'img_url': img_url})
+        
+        # return to the previous page
+        browser.back()
 
 
     # Store all scraped data in a dictionary
@@ -99,8 +129,8 @@ def scrape():
         "news_title": news_title,
         "news_paragraph": news_p,
         "featured_image": featured_image_url,
-        "mars_facts": mars_facts
-        #img_hemisp
+        "mars_facts": mars_facts,
+        "hemispheres": hemisphere_image_urls
     }
 
     # Close the browser after scraping
