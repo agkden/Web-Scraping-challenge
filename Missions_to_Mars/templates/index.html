@@ -42,8 +42,8 @@
           <!-- Insert Mars Facts Table -->
           <div class="col-md-4">
             <h5>Mars Facts</h5>
-            <div class="table-responsive">         
-                {{mars_data.mars_facts | safe}}              
+            <div class="table-responsive table-striped">         
+                {{mars_data.mars_facts | safe}}            
             </div>       
           </div>
         </div>  <!-- /.row -->
@@ -55,52 +55,39 @@
         <h3>Mars Hemispheres</h3>
         <hr> 
 
-        <!-- create grid 2x2 -->
         <div class="row">
-          <div class="col-md-6">
-            <!-- insert Hemisphere picture -->
-            <div class="card">
-              <div class="card-body">
-                <img src="" alt="hemisphere_enhanced">
-                <h5 class="card-title">title Hemisphere Enhanced</h5>
-              </div>
+          <!-- insert Cerberus Hemisphere picture -->
+          <div class="col-md-6 mb-4">                          
+            <img src="{{ mars_data.hemispheres[0]['img_url'] }}"  class="card-img-top" alt="cerberus_enhanced">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ mars_data.hemispheres[0]['title'] }}</h5>
             </div>
           </div>
-          <div class="col-md-6">
-            <!-- insert Hemisphere picture -->
-            <div class="card">
-              <div class="card-body">
-                <img src="" alt="hemisphere_enhanced">
-                <h5 class="card-title">title Hemisphere Enhanced</h5>
-              </div>
+          <!-- insert Schiaparelli Hemisphere picture -->         
+          <div class="col-md-6 mb-4">              
+            <img src="{{ mars_data.hemispheres[1]['img_url'] }}" class="card-img-top" alt="schiaparelli_enhanced">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ mars_data.hemispheres[1]['title'] }}</h5>
+            </div>
+          </div>        
+          <!-- insert Syrtis Major Hemisphere picture -->
+          <div class="col-md-6 mb-4">                 
+            <img src="{{mars_data.hemispheres[2]['img_url']}}" class="card-img-top" alt="syrtis_major_enhanced">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ mars_data.hemispheres[2]['title'] }}</h5>
             </div>
           </div>
-        </div>  <!-- /.row -->
-
-        <div class="row">
-          <div class="col-md-6">
-            <!-- insert Hemisphere picture -->
-            <div class="card">
-              <div class="card-body">
-                <img src="" alt="hemisphere_enhanced">
-                <h5 class="card-title">title Hemisphere Enhanced</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <!-- insert Hemisphere picture -->
-            <div class="card">
-              <div class="card-body">
-                <img src="" alt="hemisphere_enhanced">
-                <h5 class="card-title">title Hemisphere Enhanced</h5>
-              </div>
+          <!-- insert Valles Marineris Hemisphere picture -->          
+          <div class="col-md-6 mb-4">              
+            <img src="{{ mars_data.hemispheres[3]['img_url'] }}" class="card-img-top" alt="valles_marineris_enhanced">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ mars_data.hemispheres[3]['title'] }}</h5>
             </div>
           </div>
         </div>   <!-- /.row -->
       </div>
     </div>
-
-
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
