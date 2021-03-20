@@ -34,15 +34,15 @@
       <div class="container">
         <div class="row">
           <!-- Insert Featured Image -->
-          <div class="col-md-8">
+          <div class="col-md-8 mb-5">
             <h3>Featured Mars Image</h3>
             <img class="img-fluid" src="{{mars_data.featured_image}}" alt="Featured Mars Image">            
           </div>
 
           <!-- Insert Mars Facts Table -->
-          <div class="col-md-4">
-            <h5>Mars Facts</h5>
-            <div class="table-responsive table-striped">         
+          <div class="col-md-4 my-5">
+            <h5 style="padding-left: 10px;">Mars Facts</h5>
+            <div class="table-responsive table-striped text-center">         
                 {{mars_data.mars_facts | safe}}            
             </div>       
           </div>
@@ -51,23 +51,30 @@
            
 
       <!-- Insert Mars Hemispheres Pics -->
-      <div class="container text-center">
-        <h3>Mars Hemispheres</h3>
-        <hr> 
+      <div class="container-fluid text-center">
+        <h3 style="padding-top: 20px;">Mars Hemispheres</h3>
+        <hr class="my-4"> 
 
         <!-- insert hemispheres images using Jinja for-loop template  -->
         <div class="row">          
           {% for item in mars_data.hemispheres %}
-          <div class="col-md-6">
-            <img src="{{ item.img_url }}" class="card-img-top" alt="hemisphere_enhanced_image">
-            <div class="card-body text-center">
-              <h5 class="card-title">{{ item.title }}</h5>
+            <div class="col-md-6 mb-4">
+              <div class="card-border-0 shadow">
+                <img src="{{ item.img_url }}" class="card-img-top" alt="hemisphere_enhanced_image">
+                <div class="card-body text-center">
+                  <h5 class="card-title py-2 my-2">{{ item.title }}</h5>
+                </div>
+              </div>
             </div>
-          </div>
           {% endfor %}          
         </div>   <!-- /.row -->
       </div>    <!-- /.container -->
     </div>    <!-- /. container-fluid-->
+
+
+    <footer class="footer mt-auto py-4" style="background-color: #e9ecef;">
+      <div class="container"></div>
+    </footer>
     
 
     <!-- Optional JavaScript -->
